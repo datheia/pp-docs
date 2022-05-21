@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li>
+<ul>
+<li><a href="#contact-theia6320">Contact: theia#6320</a></li>
+</ul>
+</li>
+<li><a href="#color-codes">Color codes</a></li>
+<li><a href="#requests-sent">Requests sent</a>
+<ul>
+<li><a href="#place-pixel">Place pixel</a></li>
+<li><a href="#send-message-to-chat">Send message to chat</a></li>
+<li><a href="#stay-alive-packet">Stay alive packet(?)</a></li>
+<li><a href="#user-info">User info</a></li>
+</ul>
+</li>
+<li><a href="#join-guild">Join guild</a></li>
+<li><a href="#leave-guild">Leave guild</a></li>
+<li><a href="#requests-from-server">Requests from server</a>
+<ul>
+<li><a href="#chat-message">Chat message</a></li>
+</ul>
+</li>
+<li><a href="#uncategorized-idk-what-are-these-help-me-out-if-you-can">Uncategorized (idk what are these, help me out if you can)</a></li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h2 id="contact-theia6320"><strong>Contact: theia#6320</strong></h2>
+<h1 id="color-codes">Color codes</h1>
+<p><a href="https://imgur.com/a/0pmaWLh">Color codes, not every one of them is included as you can see how it goes</a></p>
+<h1 id="requests-sent">Requests sent</h1>
+<h2 id="place-pixel">Place pixel</h2>
+<p><code>42["p",[X,Y,Color,1]]</code><br>
+<strong>P.S.</strong> You can see the same packet from server, that’s how you see pixels others place, and there might be multiple arrays at same packet when you get it from server</p>
+<h2 id="send-message-to-chat">Send message to chat</h2>
+<p><code>42["chat.message",{"text":"","mention":"","type":"global","target":"","color":0}]</code></p>
+<ul>
+<li>Text - self explanatory</li>
+<li>Mention - the person you mentioned (you do it like <code>"mention":"Renko"</code> without the @)</li>
+<li>Types - three possible options, <code>global</code>, <code>guild</code>, <code>whispers</code> - you need to<br>
+specify a target if you are going to use <code>whispers</code></li>
+<li>Color - the color of your name (in format of <a href="https://imgur.com/a/0pmaWLh">color code</a>)</li>
+</ul>
+<h2 id="stay-alive-packet">Stay alive packet(?)</h2>
+<p><code>2</code></p>
+<p>(lol)</p>
+<h2 id="user-info">User info</h2>
+<p><code>42["user.profile","name"]</code></p>
+<p>This returns:<br>
+<code>42["user.profile",{"online":true, "color":32, "painting":7, "username":"name", "x":0,"y":0, "rainbow":false, "xmas":false, "name":"Pixels World War", "slug":"pixels-world-war"}]</code></p>
+<ul>
+<li>online =&gt; self explanatory</li>
+<li>color =&gt; <a href="https://imgur.com/a/0pmaWLh">Color code</a> of their selected color</li>
+<li>painting =&gt; ID of the painting they are in (this could’ve been 17721 if it was something like this <code>https://pixelplace.io/17721-drew-durnil-discord-map</code>, but in this case it is 7 because pixel world war)</li>
+<li>username =&gt; self explanatory</li>
+<li>x and y =&gt; last pixel they placed on the painting (I don’t have premium so can’t verify this)</li>
+<li>rainbow =&gt; do they have rainbow name?</li>
+<li>xmas =&gt; ?</li>
+<li>name =&gt; name of the painting they are in</li>
+<li>slug =&gt; ID of the painting (as a name)</li>
+</ul>
+<h1 id="join-guild">Join guild</h1>
+<p><code>POST /api/post-guild-access.php</code><br>
+There are 2 requests sent while joining a guild for some reason</p>
+<ul>
+<li><code>id=PYTH&amp;apply=true</code> =&gt; first one</li>
+<li><code>username=Tr433&amp;guildTag=PYTH&amp;add=true</code> =&gt; second one</li>
+</ul>
+<h1 id="leave-guild">Leave guild</h1>
+<p><code>POST /api/post-guild-access.php</code><br>
+<code>leave=true</code></p>
+<h1 id="requests-from-server">Requests from server</h1>
+<h2 id="chat-message">Chat message</h2>
+<p><code>42["chat.user.message",{"username":"Tr432","color":35,"guild":"PYTH","message":"","admin":false,"mod":false,"chatmod":false,"premium":false,"icons":[],"rainbow":false,"xmas":false,"channel":"whispers","mention":"","target":"Tr433","type":"chat","createdAt":"2022-05-21T09:57:41Z","posX":1250,"posY":1044,"posS":1}]</code></p>
+<ul>
+<li>Username =&gt; self-explanatory</li>
+<li>Color - <a href="https://imgur.com/a/0pmaWLh">Color code</a> of the color they selected</li>
+<li>Guild - Shortened name (ID?) of guild</li>
+<li>Admin, mod, chatmod, premium =&gt; Icons?</li>
+<li>Rainbow =&gt; Rainbow name?</li>
+<li>Channel =&gt; The type you’ve seen in the message section (<code>whispers</code>, <code>global</code>, <code>guild</code>)</li>
+<li>Icons =&gt; Array of icons (bread icon and et cetera)</li>
+<li>Target =&gt; Which player whisper is sent to</li>
+<li>posX =&gt; /here</li>
+<li>posY	=&gt; /here</li>
+<li>posS =&gt; Amount of zoom (you can see it in the URL)</li>
+</ul>
+<h1 id="uncategorized-idk-what-are-these-help-me-out-if-you-can">Uncategorized (idk what are these, help me out if you can)</h1>
+<p><code>42["j","player"]</code>  =&gt; join pp or painting?<br>
+<code>42["l","SimbuxMapper"]</code> =&gt; leave pp or painting???<br>
+<code>42["chat.stats",[x,y]]</code><br>
+<code>3</code> =&gt; second “stay alive” packet?</p>
+
+    </div>
+  </div>
+</body>
+
+</html>
