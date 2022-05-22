@@ -23,7 +23,7 @@
 <ul>
 <li><a href="#place-pixel">Place pixel</a></li>
 <li><a href="#send-message-to-chat">Send message to chat</a></li>
-<li><a href="#stay-alive-packet">Stay alive packet(?)</a></li>
+<li><a href="#stay-alive-packet">Stay alive packet</a></li>
 <li><a href="#user-info">User info</a></li>
 <li><a href="#join-guild">Join guild</a></li>
 <li><a href="#leave-guild">Leave guild</a></li>
@@ -33,6 +33,8 @@
 <ul>
 <li><a href="#chat-message">Chat message</a></li>
 <li><a href="#join-or-leave-pixelplace">Join OR Leave Pixelplace</a></li>
+<li><a href="#stay-alive-packet-response">Stay alive packet response</a></li>
+<li><a href="#another-alive-packet">Another alive packet</a></li>
 </ul>
 </li>
 <li><a href="#uncategorized-idk-what-are-these-help-me-out-if-you-can">Uncategorized (idk what are these, help me out if you can)</a></li>
@@ -83,9 +85,10 @@
 specify a target if you are going to use <code>whispers</code></li>
 <li>Color - the color of your name (in format of <a href="https://imgur.com/a/0pmaWLh">color code</a>)</li>
 </ul>
-<h2 id="stay-alive-packet">Stay alive packet(?)</h2>
-<p><code>2</code></p>
-<p>(lol)</p>
+<h2 id="stay-alive-packet">Stay alive packet</h2>
+<p><code>2</code><br>
+and,<br>
+<code>pong.alive</code> in response to <code>ping.alive</code></p>
 <h2 id="user-info">User info</h2>
 <p><code>42["user.profile","name"]</code></p>
 <p>This returns:<br>
@@ -130,9 +133,15 @@ There are 2 requests sent while joining a guild for some reason</p>
 <h2 id="join-or-leave-pixelplace">Join OR Leave Pixelplace</h2>
 <p><code>42["j","player"]</code> =&gt; When a <code>player</code> joins Pixelplace<br>
 <code>42["l","player"]</code> =&gt;  When a <code>player</code> leaves Pixelplace</p>
+<h2 id="stay-alive-packet-response">Stay alive packet response</h2>
+<p><code>3</code></p>
+<h2 id="another-alive-packet">Another alive packet</h2>
+<p>Server sends <code>ping.alive</code> packet to the client, if client does not respond, it ratelimits the client.</p>
 <h1 id="uncategorized-idk-what-are-these-help-me-out-if-you-can">Uncategorized (idk what are these, help me out if you can)</h1>
-<p><code>42["chat.stats",[x,y]]</code><br>
-<code>3</code> =&gt; second “stay alive” packet?</p>
+<ul>
+<li><code>42["chat.stats",[x,y]]</code></li>
+<li>List of icons possible in received chat message packet</li>
+</ul>
 
     </div>
   </div>
